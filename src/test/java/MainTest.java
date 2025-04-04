@@ -1,4 +1,5 @@
 import org.example.entity.*;
+import org.hamcrest.Matcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -68,6 +70,8 @@ public class MainTest {
         assertThat(task1.getProject(), instanceOf(String.class));
         assertThat(task1.getStatus(), instanceOf(Status.class));
     }
+
+
 
     @DisplayName("TaskData sınıfı doğru access modifiers sahip mi")
     @Test
@@ -143,6 +147,7 @@ public class MainTest {
     @Test
     public void testFindUniqueWordsMethod() {
         assertEquals(StringSet.findUniqueWords().size(), 143);
+
 
         List<String> results = StringSet.findUniqueWords().stream().collect(Collectors.toList());
         assertEquals(results.get(0), "a");
